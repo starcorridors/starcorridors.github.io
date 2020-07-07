@@ -61,7 +61,7 @@ h1, #description {
     margin: 20% auto;
     border-radius: 50%;
     border-top-color: #3498db;
-    animation: spinLoader 6s ease infinite;
+    animation: spinLoader 2s ease infinite;
 }
 
 @keyframes spinLoader {
@@ -69,7 +69,7 @@ h1, #description {
         transform: rotate(0deg) scale(0);
     }
     100% {
-        transform: rotate(360deg) scale(3);
+        transform: rotate(360deg) scale(2);
     }
 }
 
