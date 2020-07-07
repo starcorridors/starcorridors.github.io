@@ -62,15 +62,17 @@ h1, #description {
     border-radius: 50%;
     border-top-color: #3498db;
     animation: spinLoader 2s ease infinite;
-    animation-fill-mode: both;
 }
 
 @keyframes spinLoader {
     0% {
-        transform: rotate(0deg) scale(0);
+        transform: rotateZ(0deg) scale(0);
+    }
+    50% {
+        transform: rotateZ(360deg) scale(2);
     }
     100% {
-        transform: rotate(360deg) scale(2);
+        transform: rotateZ(0deg) scale(0);
     }
 }
 
