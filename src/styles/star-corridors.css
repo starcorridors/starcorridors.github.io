@@ -36,11 +36,8 @@ nav a:first-child:visited {
     color: #000;
 }
 
-h1, #description {
-    text-shadow: 0px -5px 5px rgba(0, 0, 0, 0.9), 0px 5px 5px rgba(0, 0, 0, 0.9);
-}
-
 /* ------------------------------------------------------------ Preloader */
+
 #page-loader {
     position: fixed;
     top: 0;
@@ -77,6 +74,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Carousel Scene 3D */
+
 .scene3D {
     display: block;
     margin: 64px auto 0;
@@ -222,6 +220,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Corridors Showcase */
+
 .corridors {
     text-align: center;
 }
@@ -299,6 +298,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Wall Photo */
+
 .photo-wall {
     background: #000;
     color: #fff;
@@ -353,6 +353,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Motion Title */
+
 .motion-display {
     color: #fff;
     position: absolute;
@@ -376,12 +377,14 @@ h1, #description {
 
 .motion-title {
     text-transform: uppercase;
+    text-shadow:  0px 0px 8px rgba(0, 0, 0, 0.9);
     animation: zoomInDown 1.5s ease;
 }
 
 .motion-description {
     line-height: .8em;
     text-transform: uppercase;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.9);
     animation: zoomInDown 2s ease;
 }
 
@@ -904,7 +907,7 @@ h1, #description {
 
 @media (max-width: 768px) {
     .at-at {
-        bottom: -550px;
+        bottom: -450px;
         height: 800px;
         width: 800px;       
     }
