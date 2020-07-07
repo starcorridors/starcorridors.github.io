@@ -902,6 +902,7 @@ h1, #description {
 
 @media (max-width: 768px) {
     .at-at {
+        bottom: -550px;
         height: 800px;
         width: 800px;       
     }
