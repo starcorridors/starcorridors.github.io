@@ -62,6 +62,7 @@ h1, #description {
     border-radius: 50%;
     border-top-color: #3498db;
     animation: spinLoader 2s ease infinite;
+    animation-fill-mode: alternate;
 }
 
 @keyframes spinLoader {
