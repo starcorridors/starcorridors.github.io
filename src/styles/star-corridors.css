@@ -872,7 +872,7 @@ nav a:first-child:visited {
 
 @keyframes scape {
     0% {
-        transform: translateX(-1000px) translateY(-600px) scale(1);
+        transform: translateX(-800px) translateY(-600px) scale(1);
     }
 
     100% {
