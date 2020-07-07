@@ -810,7 +810,7 @@ h1, #description {
     width: 800px;
     z-index: 2;
     transform: translateX(-800px);
-    animation: scape 10s infinite linear;
+    animation: scape 40s infinite linear;
 }
 
 @media (max-width: 768px) {
@@ -856,7 +856,7 @@ h1, #description {
     width: 80px;
     z-index: 2;
     transform: translateX(-900px);
-    animation: scape 40s infinite linear;
+    animation: scape 10s infinite linear;
     animation-delay: 22s;
     z-index: 3;
 }
