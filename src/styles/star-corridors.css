@@ -1,0 +1,993 @@
+/* Scene 3D by Acózar 2020 (www.acozar.com) */
+
+/* Version 1.0 */
+/* General MIT License (MIT) */
+/* Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: */
+/* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
+
+/* ------------------------------------------------------------ Them styles */
+
+/* /!\ You need to add vendor prefixes in order to render the CSS properly (or simply use http://leaverou.github.io/prefixfree/) /!\ */ 
+
+body {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 64px;
+    text-transform: uppercase;
+    letter-spacing: .01em;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	hyphens: none;
+}
+
+nav{
+    font-weight: bold;
+}
+
+nav a {
+    border-radius: 4px;
+}
+
+nav a:first-child:visited {
+    color: #000;
+}
+
+h1, #description {
+    text-shadow: 0px -5px 5px rgba(0,0,0,0.9), 0px 5px 5px rgba(0,0,0,0.9);
+}
+
+/* ------------------------------------------------------------ Carousel Scene 3D */
+
+.scene3D {
+    display: block;
+    margin: 64px auto 0;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.scene3D h2 {
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	hyphens: none;
+    text-transform: uppercase;
+}
+
+.scene3D button {
+    border: 1px solid #aaa;
+    border-radius: 16px;
+    box-shadow:  0px 0px 2px rgba(0,0,0,.6);
+    padding: 6px;
+    width: 140px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.scene3D button:hover {
+    box-shadow:  inset 0px 0px 4px rgba(0,0,0,.6);
+}
+
+.scene3D button:active {
+    box-shadow:  inset 0px 0px 8px rgba(0,0,0,.6);
+}
+
+.scene {
+    border: 1px solid transparent;
+    position: relative;
+    width: 320px;
+    height: 600px;
+    margin: 192px auto 64px;
+    perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+    .scene {
+        margin: 64px auto 0;
+        transform: translateY(100px) scale(.6);
+    }
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translateZ(-440px);
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.carousel a:hover {
+    cursor: zoom-in;
+    -webkit-opacity: 1;
+    -opera-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    opacity: 1;
+}
+
+.carousel__cell {
+    position: absolute;
+    width: 323px;
+    height: 574px;
+    left: 1px;
+    top: 1px;
+    border: 1px solid transparent;
+}
+
+.carousel__cell label {
+    background-color: rgba(0,0,0,.4);
+    border-radius: 24px;
+    color: #ffffff;
+    display: block;
+    font-size: 16px;
+    margin: 0 2%;
+    height: 32px;
+    width: 96%;
+    position: absolute;
+    top: -48px;
+    left: 0;
+}
+
+.carousel__cell:hover label {
+  top: -64px;
+}
+
+.carousel__cell label:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-top: 8px solid rgba(0,0,0,.4);
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(440px); }
+.carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(440px); }
+.carousel__cell:nth-child(3) { transform: rotateY( 80deg) translateZ(440px); }
+.carousel__cell:nth-child(4) { transform: rotateY(120deg) translateZ(440px); }
+.carousel__cell:nth-child(5) { transform: rotateY(160deg) translateZ(440px); }
+.carousel__cell:nth-child(6) { transform: rotateY(200deg) translateZ(440px); }
+.carousel__cell:nth-child(7) { transform: rotateY(240deg) translateZ(440px); }
+.carousel__cell:nth-child(8) { transform: rotateY(280deg) translateZ(440px); }
+.carousel__cell:nth-child(9) { transform: rotateY(320deg) translateZ(440px); }
+
+
+/* ------------------------------------------------------------ Corridors Showcase */
+
+.corridors {
+    text-align: center;
+}
+
+.corridors-showcase {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: skretch;
+}
+
+.corridors-showcase div {
+    display: flex-box;
+    height: 420px;
+    margin: 0 auto 128px;
+    width: 420px;
+    position: relative;
+}
+
+.corridors-showcase figure {
+    border: 3px solid #ddd;
+    border-radius: 50%;
+    height: 420px;
+    overflow: hidden;
+    width: 420px;
+}
+
+
+@media (max-width: 768px) {
+    .corridors-showcase div,
+    .corridors-showcase figure {
+        height: 240px;
+        width: 240px;     
+    }
+
+}
+
+.corridors-showcase figure:before,
+.corridors-showcase figure:after {
+    background-color: rgba(255,255,255,.5);
+    content: ' ';
+    height: 100%;
+    width: 50%;
+    box-sizing: border-box;
+    -webkit-transition: 1000ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.corridors-showcase figure:after {
+    left: auto;
+    right: 0;
+}
+
+.corridors-showcase figure:hover:before {
+    left: -50%;
+}
+.corridors-showcase figure:hover:after {
+    right: -50%;
+}
+
+.corridors-showcase figure figcaption {
+    color: #000;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    text-shadow: 1px 1px 0px #fff, -1px -1px 0px #fff;
+    top: 45%;
+    width: 100%;
+    -webkit-transition: 2500ms;
+    z-index: 3;
+}
+
+.corridors-showcase figure:hover figcaption {
+    filter: blur(20px);
+    opacity: .1;
+}
+
+
+/* ------------------------------------------------------------ Wall Photo */
+
+
+.photo-wall {
+    background: #000;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+    z-index: 0;
+}
+
+.photo-wall-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    align-content: skretch;
+    z-index: 1;
+}
+
+.photo-wall-gallery-column {
+    display: block;
+    margin: 0 4px 0;
+    width: 225px;
+    -webkit-box-reflect: below 0 -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(80%, transparent), to(rgba(255, 255, 255, 0.4)));
+    z-index: 2;
+}
+
+.photo-wall-gallery-column:nth-child(1) {
+    transform: perspective(900px) rotateY(25deg) translateZ(-60px) ;
+}
+
+.photo-wall-gallery-column:nth-child(2) {
+    transform: perspective(900px) rotateY(20deg) translateZ(-150px) translateX(40px);
+}
+
+.photo-wall-gallery-column:nth-child(3) {
+    transform: perspective(900px) rotateY(0deg) translateZ(-200px) scaleX(1.1);
+}
+
+.photo-wall-gallery-column:nth-child(4) {
+    transform: perspective(900px) rotateY(-20deg ) translateZ(-150px) translateX(-40px);
+}
+
+.photo-wall-gallery-column:nth-child(5) {
+    transform: perspective(900px) rotateY(-25deg) translateZ(-60px);
+}
+
+.photo-wall-gallery:hover .photo-wall-gallery-column {
+    transform: perspective(900px);
+}
+
+.photo-wall-gallery:hover {
+    transform: perspective(900px) rotateX(15deg) translateZ(-200px);
+}
+
+/* ------------------------------------------------------------ Motion Title */
+
+.motion-display {
+    color: #fff;
+    position: absolute;
+    top: 45%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+}
+.motion-crawl-titles {
+    animation: fadeOut 60.9s linear;
+}
+
+.motion-logo {
+    width: 64px;
+    animation: zoomInDown 1s ease;
+}
+
+.motion-title {
+    text-transform: uppercase;
+    animation: zoomInDown 1.5s ease;
+}
+
+.motion-description {
+    text-transform: uppercase;
+    animation: zoomInDown 2s ease;
+}
+
+.motion-crawl-titles .motion-title {
+    animation-delay: 60s
+}
+
+.motion-crawl-titles .motion-description {
+    animation-delay: 60s;
+}
+
+.motion-crawl-titles .motion-logo {
+    animation-delay: 60s;
+}
+
+@media (max-width: 768px) {
+    .motion-title {
+        font-size: 36px;   
+    }
+}
+
+
+/* ------------------------------------------------------------ Crawl Titles */
+
+.crawl-titles {
+    background: url('../img/stars-bg.jpg') no-repeat #000;
+    background-size: 100%;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    animation: starsBg 20s ease;
+    animation-delay: 40s;
+    animation-fill-mode: forwards;
+  }
+
+.intro {
+    opacity: 0;
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 30%;
+    transform: translateY(-50%);	
+    text-align: center;
+    color: rgb(75, 213, 238);
+    text-align: left;
+    animation: intro 100s ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 3;
+}
+
+.sw-logo {
+    opacity: 0;
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    height: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);	
+    animation: logo 100s ease-out; 
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 3;
+}
+
+.fade {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    top: -32px;
+    background-image: linear-gradient(0deg, transparent, black 75%);
+    z-index: 1;
+    animation: fadeGradient 2s linear;
+    animation-delay: 42s;
+    animation-fill-mode: forwards;
+}
+
+.crawl-container {
+  display: block;
+    justify-content: center;
+    position: relative;
+    height: 800px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 600%;
+    font-weight: 600;
+    letter-spacing: 6px;
+    line-height: 200%;
+    perspective: 400px;
+    transform: scale(2);
+    text-align: justify;
+    animation: fadeGradient 2s linear;
+    animation-delay: 40s;
+    animation-fill-mode: forwards;
+}
+
+.crawl {
+    position: relative;
+    top: 99999px;
+    transform-origin: 50% 100%;
+    animation: crawl 60s linear;
+    animation-delay: 20s;
+}
+
+.crawl > .title {
+    font-size: 90%;
+    text-align: center;
+}
+
+.crawl > .title h1 {
+    margin: 0 0 100px;
+    text-transform: uppercase;
+}
+
+.crawl p {
+    margin-bottom: 2em;
+}
+
+.tie-fighter {
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    animation: fadeOut 48.5s linear;
+}
+
+.tie-fighter-ship {
+    background: url('../img/tie-fighter.png') no-repeat center transparent;
+    background-size: 400px;
+    display: block;
+    margin: 0 auto;
+    height: 400px;
+    width: 400px;
+    z-index: 3;
+    animation: tieFighter 4s ease;
+    animation-fill-mode: forwards;
+    animation-delay: 48s;
+}
+
+.reload {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    height: 64px;
+    width: 64px;
+    z-index: 4;
+}
+
+.reload em small button {
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+@keyframes intro {
+    0% {
+    	    opacity: 0;
+    }
+    1% {
+            opacity: 0;
+    }  
+    1.5% { 
+            opacity: 1; 
+    }
+    5.5% { 
+            opacity: 1; 
+    }
+    6% { 
+        opacity: 0;
+    }	
+}
+
+@keyframes logo {
+    9% {
+        transform: translateX(-50%) translateY(-50%) scale(2);
+        opacity: 0; 
+    }
+    9.1% {
+        opacity: 1;
+    }
+    14% { 
+        opacity: 1; 
+    }
+    18% { 
+        transform: translateX(-50%) translateY(-50%) scale(0.1);
+        opacity: 0;
+    }	
+}
+
+@keyframes starsBg {
+    0% {
+        background-position: center top;
+    }
+	100% { 
+        background-position: center bottom
+    }
+}
+
+@keyframes tieFighter {
+    from  { transform: translateY(-200px) translateZ(0px) scale(2) rotateZ(0deg); opacity:0.5; }
+    to { transform: translateY(400px) translateZ(-3000px) scale(0) rotateZ(360deg); opacity:1; }
+}
+
+@keyframes zoomInDown {
+	1% { opacity: 0; -webkit-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0); -moz-transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0); transform: scale3d(.1, .1, .1) translate3d(0, -1000px, 0); -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); -moz-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190); } 
+	60% { opacity: 1; -webkit-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0); -moz-transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0); transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0); -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1); -moz-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1); animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1); }
+}
+
+@keyframes fadeGradient {
+	0% {
+        opacity: 1;
+    }
+	100% { 
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOut{
+	0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+}
+
+@keyframes crawl {
+	0% {
+        top: 100px;
+        transform: rotateX(20deg)  translateZ(0);
+    }
+	100% { 
+        top: -6000px;
+        transform: rotateX(25deg) translateZ(-2500px);
+    }
+}
+
+
+
+/* ------------------------------------------------------------ Hyperspace */
+
+.hyperspace {
+    background-color: #000;
+    width: 100%;
+    height: 60vh;
+    min-height: 800px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.millennium-falcon-back {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    width: 16%;
+    z-index: 2;
+    animation: advance 2s ease;
+}
+
+@media (max-width: 768px) {
+    .millennium-falcon-back {
+         bottom: -160px;
+        left: 32%;
+        width: 32%;
+    }
+}
+
+.hyperspace:before{
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.hyperspace-scene {
+    display: inline-block;
+    vertical-align: middle;
+    perspective: 5px;
+    perspective-origin: 50% 50%;
+    position: relative;
+}
+
+.hyperspace-wrap {
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    top: -500px;
+    transform-style: preserve-3d;
+    animation: hyperspaceMove 12s infinite linear;
+    animation-fill-mode: forwards;
+}
+
+.hyperspace-wrap:nth-child(2) {
+    animation: hyperspaceMove 12s infinite linear;
+    animation-delay: 6s;
+}
+.hyperspace-wall {
+    background: url('../img/hyperspace.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: hyperspaceFade 12s infinite linear;
+    animation-delay: 0;
+}
+
+.hyperspace-wrap:nth-child(2) .wall {
+    animation-delay: 6s;
+}
+
+.hyperspace-wall-right {
+    transform: rotateY(90deg) translateZ(500px);
+}
+
+.hyperspace-wall-left {
+    transform: rotateY(-90deg) translateZ(500px);
+}
+
+.hyperspace-wall-top {
+    transform: rotateX(90deg) translateZ(500px);
+}
+
+.hyperspace-wall-bottom {
+    transform: rotateX(-90deg) translateZ(500px);
+}
+
+.hyperspace-wall-back {
+    transform: rotateX(180deg) translateZ(500px);
+}
+
+@keyframes advance {
+    0%{
+        transform: scale(2) translateY(200px) rotateZ(360deg);
+    }
+    100%{
+        transform: scale(1) translateY(0px) rotateZ(0deg);
+    }
+}
+
+@keyframes hyperspaceMove {
+    0%{
+        transform: translateZ(-500px) rotate(0deg);
+    }
+    100%{
+         transform: translateZ(500px) rotate(0deg);
+    }
+}
+
+@keyframes hyperspaceFade {
+    0%{
+        opacity: 0.1;
+    }
+    25% {
+        opacity: .5;
+    }
+    75% {
+    opacity: .5;
+    }
+    100%{
+        opacity: 0.1;
+    }
+}
+
+/* ------------------------------------------------------------ Princess in danger */
+
+.princess-in-danger {
+    background: url('../img/galaxy-bg.jpg') no-repeat #000;
+    background-size: 100%;
+    color: #fff;
+    text-align: center;
+     width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tantive-ship {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 800px;
+    width: 800px;
+    z-index: 2;
+    transform: translateX(-800px);
+    animation: scape 40s infinite linear;
+}
+
+.laser {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    width: 40px;
+    z-index: 2;
+    transform: translateX(-900px);
+    animation: scape 6s infinite linear;
+    animation-delay: 20s;
+}
+
+.laser:nth-child(2) {
+    transform: translateX(-800px) translateY(-20px);
+    animation-delay: 21s;
+}
+
+.laser:nth-child(3) {
+    top: -250px;
+    animation-delay: 22s;
+}
+
+.laser:nth-child(4) {
+    top: -30px;
+    left: -50px;
+    animation-delay: 22.2s;
+}
+
+.tie-hunter {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    height: 80px;
+    width: 80px;
+    z-index: 2;
+    transform: translateX(-900px);
+    animation: scape 10s infinite linear;
+    animation-delay: 22s;
+    z-index: 3;
+}
+
+.tantive-titles {
+    margin-top: 20vh;
+}
+
+@keyframes scape {
+    0%{
+        transform: translateX(-1200px) translateY(100px) scale(2);
+    }
+    100%{
+        transform: translateX(200vw) translateY(2000px) scale(4);
+    }
+}
+
+/* ------------------------------------------------------------ Battle in Hoth */
+
+.battle-in-hoth {
+    background: url('../img/hoth-bg.jpg') no-repeat #fff;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.at-at {
+    position: absolute;
+    bottom: -1100px;
+    left: 0;
+    height: 1600px;
+    width: 1600px;
+    z-index: 2;
+    transform: translateX(-1400px);
+    animation: greatSteps 40s infinite linear;
+}
+
+.snowspeeder {
+    position: absolute;
+    top: -50vh;
+    left: 0;
+    height: 120px;
+    width: 120px;
+    z-index: 3;
+    transform: translateX(-400px);
+    animation: scape 10s infinite ease;
+}
+
+.echo-base-titles {
+    margin-top: 20vh;
+}
+
+@keyframes greatSteps {
+    0%{
+        transform: translateX(-1400px) translateY(0) scale(1);
+    }
+    5%{
+        transform: translateX(-1200px) translateY(-100px) scale(1);
+    }
+    10%{
+     transform: translateX(-1000px) translateY(50px) scale(1);
+    }
+    15%{
+        transform: translateX(-800px) translateY(-50px) scale(1);
+    }
+    20%{
+        transform: translateX(-600px) translateY(100px) scale(1);
+    }
+    25%{
+        transform: translateX(-400px) translateY(0) scale(1);
+    }
+    30%{
+        transform: translateX(-200px) translateY(150px) scale(1);
+    }
+    35%{
+        transform: translateX(0) translateY(50px) scale(1);
+    }
+    40%{
+        transform: translateX(200px) translateY(200px) scale(1);
+    }
+    45%{
+        transform: translateX(400px) translateY(100px) scale(1);
+    }
+    50%{
+        transform: translateX(600px) translateY(300px) scale(1);
+    }
+    55%{
+        transform: translateX(800px) translateY(150px) scale(1);
+    }
+    60%{
+        transform: translateX(1000px) translateY(350px) scale(1);
+    }
+    65%{
+        transform: translateX(1200px) translateY(200px) scale(1);
+    }
+    70%{
+        transform: translateX(1400px) translateY(400px) scale(1);
+    }
+    75%{
+        transform: translateX(1600px) translateY(250px) scale(1);
+    }
+    80%{
+        transform: translateX(1800px) translateY(450px) scale(1);
+    }
+    85%{
+        transform: translateX(2000px) translateY(300px) scale(1);
+    }
+    90%{
+        transform: translateX(2200px) translateY(500px) scale(1);
+    }
+    95%{
+        transform: translateX(2400px) translateY(350px) scale(1);
+    }
+    100%{
+        transform: translateX(2600px) translateY(-550px) scale(1);
+    }
+}
+
+/* ------------------------------------------------------------ Death Star */
+
+.planet-destroyer {
+    background: url('../img/stars-bg.jpg') no-repeat #000;
+    background-size: 100%;
+    color: #fff;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.death-star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60vw;
+    width: 60vw;
+    z-index: 2;
+    animation: slowMarch 10s ease;
+    animation-fill-mode: forwards;
+}
+
+.destroyer-titles {
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+.tie-destroyer {
+    position: absolute;
+    top: -320px;;
+    left: 0;
+    width: 60%;
+    z-index: 4;
+    animation: tieFighter 4s ease;
+    animation-delay: 10s;
+}
+
+.star-destroyer {
+    position: absolute;
+    bottom: -4vh;
+    right: -100vw;
+    width: 60%;
+    z-index: 4;
+    animation: starDestroyer 80s infinite linear;
+}
+
+@keyframes slowMarch {
+    0%{
+        transform: translateX(0) translateY(-65vh) scale(.2);
+    }
+    100%{
+        transform: translateX(-100px) translateY(100px) scale(1);
+    }
+}
+
+@keyframes starDestroyer {
+    0%{
+        transform: translateX(0) translateY(0) scale(.1);
+    }
+    100%{
+        transform: translateX(-220vw) translateY(0) scale(1.6);
+    }
+}
+
+/* ------------------------------------------------------------ Sw Logo */
+
+.sw-logo {
+	background-image: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY5My42MTVweCIgaGVpZ2h0PSI0MTkuMzc1cHgiIHZpZXdCb3g9IjAgMCA2OTMuNjE1IDQxOS4zNzUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY5My42MTUgNDE5LjM3NSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGcgaWQ9IkxheWVyXzIiPgk8Zz4JCTxwYXRoIGZpbGw9IiNGRkU4MUYiIGQ9Ik0xNDguNzE4LDIyMS4yMDdsOC42NywyNS40NjFjNC42OTEsMTMuNzY4LDguODc5LDI0Ljc3OSw5LjQyNSwyNC43NzljMC4wMDksMCwwLjAxNy0wLjAwNCwwLjAyNC0wLjAxICAgIGMwLjYtMC41MywxNy41Ny00OS44MTEsMTcuNTctNDkuODExaDMyLjg5bC0zOS42OCwxMTUuNjE5aC0yMi44NmMwLDAtMjQuNC03MC40NzEtMjQuMy03MC43MzlsLTI1LjQ3LDY5Ljg1MWgtMjIuNjMgICAgbC0zOS4xOC0xMTUuMTVsMzIuNzMsMC4wMjFjMCwwLDE3LjkyOSw1MC44MjEsMTguMTY4LDUwLjgyMWMwLjAwMSwwLDAuMDAxLTAuMDAxLDAuMDAyLTAuMDAybDE3Ljg5LTUwLjg0MUgxNDguNzE4IE0zMi4wMDMsMjEzLjIgICAgbDMuNjAxLDEwLjU4NGwzOS4xOCwxMTUuMTQ5bDEuODQ1LDUuNDI0aDUuNzI5aDIyLjYzaDUuNTk4bDEuOTE4LTUuMjZsMTcuNjg1LTQ4LjVjMS41MjQsNC40MzQsMy4xNzEsOS4yMTMsNC44MTgsMTMuOTg4ICAgIGM2LjA4OSwxNy42NTUsMTIuMTkxLDM1LjI3NywxMi4xOTEsMzUuMjc3bDEuODY0LDUuMzgzaDUuNjk2aDIyLjg2aDUuNzEybDEuODU0LTUuNDAzbDM5LjY4LTExNS42MThsMy42MzctMTAuNTk4aC0xMS4yMDRoLTMyLjg5ICAgIGgtNS43MDZsLTEuODU4LDUuMzk2Yy0yLjk3NCw4LjYzNS02LjkyMSwyMC4wMzEtMTAuMjk2LDI5LjY3NmMtMC41MDktMS40NjMtMS4wMzktMy4wMDEtMS41ODctNC42MTFsLTguNjY5LTI1LjQ2bC0xLjg0Ni01LjQyMSAgICBoLTUuNzI3aC0zNi43NWgtNS42NjZsLTEuODgxLDUuMzQ1bC0xMC40NTMsMjkuNzA2Yy0zLjQ1My05LjcwNi03LjQ1Ni0yMS4wMTctMTAuNTE2LTI5LjY5MWwtMS44ODItNS4zMzRsLTUuNjU3LTAuMDA0ICAgIGwtMzIuNzMtMC4wMjFMMzIuMDAzLDIxMy4yTDMyLjAwMywyMTMuMnoiLz4JPC9nPgk8Zz4JCTxwYXRoIGZpbGw9IiNGRkU4MUYiIGQ9Ik02NTUuMjU4LDIyMC43NThsLTAuMDc1LDMwLjMwNWMwLDAtMzIuNjQzLTAuMTA5LTQ5LjIzOS0wLjEwOWMtNS41MjEsMC05LjI2NiwwLjAxMy05LjQ0NCwwLjA0NSAgICBjLTIuODYsMC41MjEtNC42ODEsNi42MDItMy44Nyw5LjI3MWMwLjM5OSwxLjM1LDMuMzkxLDUuNzYsNi42Myw5LjgxYzMuMjI5LDQuMDUxLDguNTQsMTAuNjgxLDExLjc4LDE0LjcyOSAgICBjOC4zMTksMTAuMzgxLDkuNDYsMTIuNDMsMTAuMjI5LDE4LjM5MWMxLjI1LDkuNjgxLTMuMzI5LDIwLjE2LTExLjgyOSwyNy4wN2MtOC41MTgsNi45My04LjE0NSw2Ljk3OS03MS4zODMsNi45NzkgICAgYy0wLjkxNiwwLTEuODM1LDAtMi43NzcsMGMtMzguNDYtMC4wMS01OC44LTAuMzI5LTYxLjc2MS0wLjk4OWMtNS4yNi0xLjE5LTEzLjY0LTguMDMtMzUuNzktMjkuMjggICAgYy03Ljk2Ny03LjYzNi0xNS4zMDktMTQuMzIyLTE1LjY4Ni0xNC4zMjRjLTAuMDEsMC0wLjAxNSwwLjAwNi0wLjAxNSwwLjAxNmwtMC4yNjEsNDQuNTc5bC0zNS44OTktMC4xNTlsLTAuMjIxLTExNC45OGg0NS4yNzEgICAgaDM0Ljc5YzI0LjEzLDAuODcxLDQwLjQ2LDI0LjkxLDM3LjIxLDQwLjI0Yy0wLjc0LDMuNDc5LTIuNjIsOC41MjEtNC4xODEsMTEuMmMtMy4yMSw1LjUtMTEuMzgsMTIuNTYtMTguMDExLDE1LjU5MSAgICBjLTIuNDQ5LDEuMTA4LTQuNDQ5LDIuMzk4LTQuNDQ5LDIuODU4YzAsMS43MSw4LjA2MSw5LjY0OSwxMS4wOCwxMC45MWMyLjU3OSwxLjA3OSwxMC4wOSwxLjMxOSw0My4yMSwxLjMxOSAgICBjMy44ODIsMCw3LjQwOCwwLjAwMiwxMC42MDgsMC4wMDJjMzMuMjkzLDAsMzEuNjE4LTAuMjQsMzQuMTktNS43NDFjMS44MDEtMy44MywwLjQzMS02LjEyLTEyLjIzOS0yMC4zOSAgICBjLTE2LjA1MS0xNS45NzEtMTQuMzctMjMuNjIxLTE0LjQ4LTI5LjI3MWMtMC4yMjktNi43Nyw1LjEwMi0yOC4wNjksMzIuODEyLTI4LjA2OUw2NTUuMjU4LDIyMC43NTggTTQ0MC4xODgsMjczLjg3OCAgICBjMTUuMzcsMCwxOC40OS0wLjIzOSwyMS43NjEtMS42NmMxMS4wNC00LjgsMTEuNjMtMTguOTc5LDEuMDQtMjUuMjcxYy0yLjMxOS0xLjM4MS01LjMtMS42MDktMjEuOTYtMS43bC0xOS4yNzktMC4xMDEgICAgYzAuMTU5LDAuMTUtMC4wNjEsMjcuNTctMC4wNjEsMjcuNTdTNDI2LjUxOCwyNzMuODc4LDQ0MC4xODgsMjczLjg3OCBNNjYzLjI3NywyMTIuNzU4aC04LjAyMWgtNzMuOCAgICBjLTE2LjAzMiwwLTI1LjUxNSw2LjMyOC0zMC42NDYsMTEuNjM3Yy04LjM0Nyw4LjYzMy0xMC4zMTMsMTkuNTA0LTEwLjE2MiwyNC42MjljMC4wMDgsMC40MjcsMC4wMDMsMC44NjUtMC4wMDIsMS4zMjIgICAgYy0wLjA3Myw4LjMyOSwxLjE1NCwxNy43NTgsMTYuNjU5LDMzLjI0NmMzLjA2NSwzLjQ1Miw4LjE5Myw5LjIzOSwxMC4xMzEsMTIuMTE1Yy00LjIzOCwwLjUyMS0xNC45OCwwLjUyMS0yNi4yNjIsMC41MjFoLTQuNzkyICAgIGwtNS44MTYtMC4wMDJjLTE5LjkwNCwwLTM2LjY4OC0wLjA1Ny00MC4xMjgtMC43MzZjLTAuNDgxLTAuMzE0LTEuMTU2LTAuODU0LTEuODk4LTEuNDk4YzYuODc3LTQuMjM1LDEzLjgzLTEwLjc5OSwxNy4xMDQtMTYuNDEyICAgIGMxLjk4Ny0zLjQxMyw0LjE3OC05LjI0Myw1LjA5OC0xMy41NjhjMi4wNC05LjYyNS0xLjMyNS0yMS4yMzYtOS4wMDEtMzEuMDY4Yy04Ljk1Ni0xMS40NzEtMjEuOTg1LTE4LjMzNC0zNS43NDYtMTguODMgICAgbC0wLjE0NS0wLjAwNmgtMC4xNDVoLTM0Ljc5aC00NS4yNzFoLTguMDE2bDAuMDE2LDguMDE3bDAuMjIxLDExNC45NzlsMC4wMTYsNy45NDlsNy45NDksMC4wMzVsMzUuODk5LDAuMTU5bDcuOTg4LDAuMDM1ICAgIGwwLjA0Ny03Ljk4OGwwLjE1NS0yNi43MDZjMC43MzMsMC42OTYsMS40OTEsMS40MTksMi4yNjksMi4xNjVjMjQuMjI3LDIzLjI0LDMyLjM1OSwyOS42NzksMzkuNTYyLDMxLjMwOCAgICBjMS45NzksMC40NDEsNS4yNTMsMS4xNzIsNjMuNTIzLDEuMTg4aDIuNzc5YzMxLjU0NiwwLDQ3LjM4LDAsNTYuNzk5LTAuOTFjMTAuNzg5LTEuMDQzLDE0LjI1OS0zLjQ5LDE5LjQ2MS03LjcyNWwwLjE3My0wLjE0MSAgICBjMTAuNjg1LTguNjg3LDE2LjMyMy0yMS44MywxNC43MTUtMzQuM2MtMS4wNDgtOC4xMS0zLjE5NC0xMS40NzktMTEuOTIyLTIyLjM2OGwtMi41OTQtMy4yNCAgICBjLTMuMDQtMy43OTktNi43MTMtOC4zODctOS4xNzUtMTEuNDc1Yy0xLjk4Ni0yLjQ4NC0zLjU0Ni00LjY4OS00LjQ4Ny02LjEzM2MxLjIzNi0wLjAwMywyLjg0MS0wLjAwNSw0LjkxOC0wLjAwNSAgICBjMTYuMzk1LDAsNDguODg3LDAuMTA4LDQ5LjIxMywwLjExbDguMDA4LDAuMDI2bDAuMDItOC4wMDhsMC4wNzUtMzAuMzA2TDY2My4yNzcsMjEyLjc1OEw2NjMuMjc3LDIxMi43NTh6IE00MjkuNzM5LDI2NS41ODYgICAgYzAuMDEzLTIuMDIxLDAuMDI1LTQuMjg3LDAuMDM4LTYuNTU3YzAuMDEtMiwwLjAxOS00LjAwNCwwLjAyMi01Ljg0bDExLjE4NywwLjA1OGM2LjQyOSwwLjAzNSwxNi4xMDMsMC4wODgsMTcuOTg5LDAuNjIzICAgIGMyLjQwNywxLjQ2MSwzLjc1LDMuNzIsMy42MDQsNi4wNmMtMC4wOCwxLjI2NC0wLjY4MiwzLjU4OC0zLjgyMSw0Ljk1MWMtMS43NSwwLjc2LTQuNTQsMC45OTctMTguNTcsMC45OTcgICAgQzQzNS43MzgsMjY1Ljg3OCw0MzIuMzA1LDI2NS43NDksNDI5LjczOSwyNjUuNTg2TDQyOS43MzksMjY1LjU4NnoiLz4JPC9nPgk8Zz4JCTxwYXRoIGZpbGw9IiNGRkU4MUYiIGQ9Ik0zMTIuOTA4LDIyMC4yODdsNDAuMjksMTE1LjkybC0zMi44MywwLjE1bC01LjQ1LTE3LjQxbC01OC43LTAuNDcxbC01LjE4LDE3LjQzMWwtMzIuNS0wLjM0MSAgICBsMzkuNzgtMTE1LjIyOUwzMTIuOTA4LDIyMC4yODcgTTI4Ni41MDcsMjM3LjI4M2MtMC4wODMsMC4zMzMtNS4xNDQsMTQuMjE5LTEwLjIyMiwyOC4xMDRjLTUuMTIsMTQtMTAuMjU3LDI4LTEwLjMyOCwyOC4xMDkgICAgYzAsMC4wMDEtMC4wMDEsMC4wMDEsMCwwLjAwMWwwLDBjMCwwLDAsMCwwLTAuMDAxYzAuMTM2LTAuMDQsMTguMzE2LTAuMDgsMjkuOTY4LTAuMDhjNS40NTMsMCw5LjQ3NSwwLjAwOSw5LjU1LDAuMDI5ICAgIGMwLjAwMSwwLjAwNCwwLjAwMSwwLjAwNSwwLjAwMSwwLjAwNXMwLTAuMDAxLDAtMC4wMDNjMCwwLDAsMC0wLjAwMS0wLjAwMkMzMDUuMjcxLDI5Mi45MTYsMjg2LjU2NiwyMzcuOTU5LDI4Ni41MDcsMjM3LjI4MyAgICBjMC4wMDEtMC4wMDQsMC4wMDEtMC4wMDYsMC4wMDEtMC4wMDZsMCwwQzI4Ni41MDcsMjM3LjI3NywyODYuNTA3LDIzNy4yNzksMjg2LjUwNywyMzcuMjgzIE0zMTguNTk1LDIxMi4yODJsLTUuNjkzLDAuMDA1ICAgIGwtNTQuNTksMC4wNTFsLTUuNjk2LDAuMDA1bC0xLjg1OSw1LjM4NmwtMzkuNzgsMTE1LjIyOWwtMy42MjMsMTAuNDk0bDExLjEwMiwwLjExNWwzMi41LDAuMzQxbDYuMDMzLDAuMDYzbDEuNzE5LTUuNzgyICAgIGwzLjQ2Ni0xMS42NjJsNDYuODU0LDAuMzc1bDMuNzA4LDExLjg0OGwxLjc2NSw1LjYzOGw1LjkwNy0wLjAyNmwzMi44MjktMC4xNWwxMS4xOTUtMC4wNTJsLTMuNjc2LTEwLjU3NGwtNDAuMjktMTE1LjkyICAgIEwzMTguNTk1LDIxMi4yODJMMzE4LjU5NSwyMTIuMjgyeiBNMjc3LjQ3MiwyODUuNDI0YzEuNTE1LTQuMTI5LDMuNTU2LTkuNzEsNi4zMjctMTcuMjg5YzAuODY5LTIuMzc2LDEuNjY0LTQuNTUxLDIuMzkzLTYuNTQ1ICAgIGMwLjY2MywxLjk1NiwxLjM4NSw0LjA4NCwyLjE2OSw2LjM5OGMwLjY0NiwxLjkwNiwzLjQ4NSwxMC4yNyw1LjkyLDE3LjQyOEMyODcuMDQxLDI4NS40MTYsMjgxLjU5MSwyODUuNDE3LDI3Ny40NzIsMjg1LjQyNCAgICBMMjc3LjQ3MiwyODUuNDI0eiIvPgk8L2c+CTxnPgkJPHBhdGggZmlsbD0iI0ZGRTgxRiIgZD0iTTMyNi40ODgsODEuOTI4djI4LjZoLTU3LjI4djg3LjQ3aC0zNC4xNXYtODcuNTRsLTY2Ljg2LDAuMTljLTguMDYsMC05LjE0LDYuNDItOS4xNCw4Ljg4ICAgIGMwLDMuMDIsMS45Nyw2LjA0LDEyLjc5LDE5Ljc0YzcuMDIsOC45LDEzLjQ3LDE3Ljc4LDE0LjMyLDE5LjcyYzQuNjQsMTAuNjgtMS4zNiwyNy4zMi0xMi4yOSwzNC4wOCAgICBjLTcuNzksNC44MTMtNi40NTksNC45MzEtNjQuMzA4LDQuOTMxYy0yLjk3NCwwLTYuMDk2LDAtOS4zOTIsMGgtNjIuMjd2LTMyLjEzaDk3LjlsMi44OS0yLjAxYzEuOTUtMS4zNiwzLjA4LTMuMjMsMy41MS01Ljc5ICAgIGMwLjYtMy42OCwwLjI5LTQuMTYtMTEuOC0xNy43OGMtMTQuMjktMTYuMS0xNS44LTE5LjA0LTE1LjA2LTI5LjMyYzAuODQtMTEuNzMsMTEuMy0yOC43NywyOS41OC0yOC43N0wzMjYuNDg4LDgxLjkyOCAgICAgTTMzNC40ODgsNzMuOTE2bC04LjAxMywwLjAxMmwtMTgxLjU2LDAuMjdjLTEwLjQ1OCwwLTIwLjE3MSw0LjUxOC0yNy4zNDIsMTIuNzIyYy01LjgxNCw2LjY1Mi05LjYzLDE1LjQyOS0xMC4yMDYsMjMuNDc3ICAgIGMtMC45NzMsMTMuNTExLDIuMTM3LDE4LjM5MywxNy4wNTYsMzUuMjAyYzQuMzMsNC44NzcsOC40NDcsOS41MTYsOS44MjEsMTEuNDg2Yy0wLjAyMiwwLjA3OS0wLjA0MiwwLjEzLTAuMDU0LDAuMTU5ICAgIGMtMC4wMTUsMC4wMTItMC4wMzgsMC4wMy0wLjA3LDAuMDUybC0wLjgyMiwwLjU3MkgzNy45MDhoLTh2OHYzMi4xM3Y4aDhoNjIuMjdoNC45MzdoNC40NTVjMjguNTIyLDAsNDIuNi0wLjAyNyw1MC44OTQtMC42MzUgICAgYzkuNDktMC42OTUsMTIuNTE4LTIuMzIzLDE3LjA1NC01LjE0bDAuNTY2LTAuMzUxYzE0LjI2Mi04LjgyMSwyMS42MTItMjkuODI3LDE1LjQyMi00NC4wNzQgICAgYy0xLjkxLTQuMzU4LTE0LjAwMy0xOS43NDYtMTUuMzc2LTIxLjQ4NmMtMy43OTYtNC44MDctMTAuMDYyLTEyLjc0LTExLjA1NC0xNS4wMzZjMC4wMjQtMC4xOTMsMC4wNzEtMC4zOTMsMC4xMjEtMC41MzIgICAgYzAuMTY1LTAuMDQyLDAuNDgxLTAuMDk4LDEuMDAxLTAuMDk4bDU4Ljg2LTAuMTY3djc5LjUxN3Y4aDhoMzQuMTVoOHYtOHYtNzkuNDdoNDkuMjhoOHYtOHYtMjguNlY3My45MTZMMzM0LjQ4OCw3My45MTZ6Ii8+CTwvZz4JPGc+CQk8cGF0aCBmaWxsPSIjRkZFODFGIiBkPSJNNDE5LjU0OCw4Mi44NTdsNDAuMTgsMTE2LjIybC0zMi43Ny0wLjE4bC01LjMyLTE3LjQxbC01OC40MzktMC4yNmwtNS4yMjEsMTYuNzdoLTMzLjM2OWwzOS43MzktMTE1LjE0ICAgIEg0MTkuNTQ4IE0zNzIuNzM3LDE1Ni40NzhsMzkuODAxLTAuMDVjMC4wMDEsMCwwLjAwMSwwLjAwMSwwLjAwMSwwLjAwMWMwLjEzNiwwLTE5LjM0Mi01Ny4yMDEtMTkuNDcyLTU3LjI0MWwwLDAgICAgQzM5Mi45MjUsOTkuMTgzLDM3Mi4yODgsMTU2LjQ3OCwzNzIuNzM3LDE1Ni40NzggTTQyNS4yNDcsNzQuODU3aC01LjY5OWgtNTUuMmgtNS43MDFsLTEuODYsNS4zOWwtMzkuNzQsMTE1LjE0MWwtMy42NjIsMTAuNjEgICAgaDExLjIyNWgzMy4zN2g1Ljg4OWwxLjc1LTUuNjIzbDMuNDYxLTExLjEyMWw0Ni42MzIsMC4yMDdsMy41OTksMTEuNzc0bDEuNzIxLDUuNjI5bDUuODg3LDAuMDMzbDMyLjc3LDAuMThsMTEuMjk3LDAuMDYyICAgIGwtMy42OTEtMTAuNjc2bC00MC4xOC0xMTYuMjJMNDI1LjI0Nyw3NC44NTdMNDI1LjI0Nyw3NC44NTd6IE0zODMuODUxLDE0OC40NjRjMi40NjgtNy4wMjcsNS45MDQtMTYuNjU3LDkuMDE0LTI1LjMxMiAgICBjMi45NDgsOC42NDQsNi4yMDksMTguMjQ1LDguNTg4LDI1LjI5TDM4My44NTEsMTQ4LjQ2NEwzODMuODUxLDE0OC40NjR6Ii8+CTwvZz4JPGc+CQk8cGF0aCBmaWxsPSIjRkZFODFGIiBkPSJNNTMyLjM5Niw4Mi44NTdjMjUuOTIxLDAsNDMuOTEsMC4zNyw0Ny4zNywwLjk3YzgsMS4zOSwxNS4yMyw1LjY2LDIwLjY1LDEyLjIyICAgIGM1LjY3LDYuODYsNi45NywxMC4xNCw3LjcxLDE5LjU0YzEuMDYxLDEzLjI3LTUuMjUsMjQuNzItMTcuNywzMi4xNWMtMy42MywyLjE3LTcuMzU5LDQuMjgtOC4yOSw0LjcgICAgYy0xLjQzLDAuNjUtMS4yMzksMS4yNywxLjMyLDQuMjdjMS42NDksMS45Myw0LjUxLDQuNjgsNi4zNSw2LjExbDMuMzYsMi42MWw2Mi4wOCwwLjg5bDAuNjA5LDMxLjY4aC0zOC4wNjEgICAgYy0yOS40MzksMC0zOC44Ni0wLjI3LTQxLjYyLTEuMmMtNC4xMy0xLjQtMTQuMDY5LTkuODItMzQuMjcxLTI5LjA0bC0xNC40Mi0xMy43MmwwLjE1Miw0My45NmgtMzcuMDQzVjgyLjg1N0g1MzIuMzk2ICAgICBNNTI2LjkzOCwxMzQuNjI3aDE5LjY3MWMxOS4xNDEsMCwxOS43MzktMC4wNiwyMi40Ny0yLjExYzQuODgxLTMuNjYsNi42MDktNy40Myw2LjA5MS0xMy4yMmMtMC41My01Ljk3LTIuODMtOS4wOC04LjYwMS0xMS41OCAgICBjLTMuMjUtMS40Mi02LjM4MS0xLjY1LTIxLjcyMS0xLjY1aC0xNy45MVYxMzQuNjI3IE01MzIuMzk2LDc0Ljg1N2gtNDEuOGgtOHY4djExNS4xNHY4aDhoMzcuMDQzaDguMDI4bC0wLjAyOC04LjAyOCAgICBsLTAuMDg4LTI1LjIxNmwwLjg0LDAuNzk5YzI0Ljk4NiwyMy43NzMsMzIuMzU2LDI5LjE3MywzNy4yMTgsMzAuODIxYzMuNzMzLDEuMjU5LDkuOTgyLDEuNjI0LDQ0LjE4OCwxLjYyNGgzOC4wNjFoOC4xNTQgICAgbC0wLjE1Ni04LjE1NGwtMC42MDktMzEuNjhsLTAuMTQ4LTcuNzM0bC03LjczNC0wLjExMWwtNTkuNDAyLTAuODUxbC0xLjI0NS0wLjk2N2MtMC4zOTYtMC4zMDktMC44NzYtMC43MTctMS4zODktMS4xNzkgICAgYzAuNDQ2LTAuMjY0LDAuODU0LTAuNTA3LDEuMjA3LTAuNzE3YzE1LjAwMy04Ljk1MywyMi44NjYtMjMuNDA3LDIxLjU2OS0zOS42NTNjLTAuODYzLTEwLjk1OS0yLjgyLTE1Ljg5Ni05LjUyLTI0ICAgIGMtNi41ODQtNy45NjktMTUuNjIxLTEzLjI5OC0yNS40NDctMTUuMDA1QzU3NS42NzgsNzQuOTk5LDU0OC4yNTcsNzQuODU3LDUzMi4zOTYsNzQuODU3TDUzMi4zOTYsNzQuODU3eiBNNTM0LjkzOCwxMTQuMDY3aDkuOTEgICAgYzE0LjAyNywwLDE2LjgwNiwwLjIzMywxOC41MTgsMC45ODFjMy4yNSwxLjQwOCwzLjU4LDIuMDkxLDMuODM1LDQuOTU3YzAuMjU2LDIuODQ4LTAuMDk3LDMuOTk0LTIuOTIyLDYuMTEyICAgIGMtMC4wOTMsMC4wNjktMC4xNjQsMC4xMjMtMC4yMjMsMC4xNjZjLTEuODY1LDAuMzQ1LTguNzg2LDAuMzQ1LTE3LjQ0NywwLjM0NWgtMTEuNjdMNTM0LjkzOCwxMTQuMDY3TDUzNC45MzgsMTE0LjA2N3oiLz4JPC9nPjwvZz48L3N2Zz4="); 
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;	
+}
+
+/* ------------------------------------------------------------ Soundtrack */
+
+.soundtrack {
+    text-align: center;
+    animation: fadeAudio 5s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 100s;
+}
+
+.soundtrack em small a {
+    border: 1px solid #ddd;
+    border-radius: 32px;
+    font-size: 12px;
+}
+
+.sw-player-status {
+    display: block;
+    height: 96px;
+    margin: 0 auto;
+    width: 96px;
+}
+
+@keyframes fadeAudio {
+	0% {
+        opacity: 1;
+    }
+	100% { 
+        opacity: 0;
+    }
+}
+
+
+/* The End */
