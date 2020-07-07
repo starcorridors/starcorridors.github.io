@@ -55,7 +55,7 @@ nav a:first-child:visited {
     position: relative;
     width: 150px;
     height: 150px;
-    margin: 40% auto;
+    margin: 40vh auto;
     border-radius: 50%;
     border-top-color: #3498db;
     animation: spinLoader 2s ease infinite;
