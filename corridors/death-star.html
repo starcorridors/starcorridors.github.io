@@ -49,7 +49,7 @@
 		
 	</head>
 	<body>
-				
+		<div id="page-loader"><span class="preloader"></span></div>
 		<!-- Page content -->		
 		<div id="page" class="page">
 			<nav id="site-nav" class="nav-smart">
@@ -297,6 +297,9 @@
                 location.reload(true); 
             }); 
         }); 
+		$(window).load(function(){
+		    $('#page-loader').fadeOut(500);
+		});
    		 </script> 
 	</body>
 </html>
