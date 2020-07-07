@@ -678,7 +678,7 @@ nav a:first-child:visited {
     left: 40%;
     width: 16%;
     z-index: 2;
-    animation: advance 2s ease;
+    animation: advance 3s ease;
 }
 
 @media (max-width: 768px) {
