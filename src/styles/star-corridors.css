@@ -810,7 +810,14 @@ h1, #description {
     width: 800px;
     z-index: 2;
     transform: translateX(-800px);
-    animation: scape 40s infinite linear;
+    animation: scape 10s infinite linear;
+}
+
+@media (max-width: 768px) {
+    .tantive-ship {
+        height: 500px;
+        width: 500px; 
+    }
 }
 
 .laser {
@@ -849,7 +856,7 @@ h1, #description {
     width: 80px;
     z-index: 2;
     transform: translateX(-900px);
-    animation: scape 10s infinite linear;
+    animation: scape 40s infinite linear;
     animation-delay: 22s;
     z-index: 3;
 }
@@ -860,11 +867,11 @@ h1, #description {
 
 @keyframes scape {
     0% {
-        transform: translateX(-1200px) translateY(-200px) scale(2);
+        transform: translateX(-1000px) translateY(-600px) scale(1);
     }
 
     100% {
-        transform: translateX(200vw) translateY(2000px) scale(4);
+        transform: translateX(180vw) translateY(170vh) scale(3);
     }
 }
 
