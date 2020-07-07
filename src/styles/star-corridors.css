@@ -791,6 +791,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Princess in danger */
+
 .princess-in-danger {
     background: url('../img/galaxy-bg.jpg') no-repeat #000;
     background-size: 100%;
@@ -877,6 +878,7 @@ h1, #description {
 }
 
 /* ------------------------------------------------------------ Battle in Hoth */
+
 .battle-in-hoth {
     background: url('../img/hoth-bg.jpg') no-repeat #fff;
     background-size: cover;
@@ -934,89 +936,70 @@ h1, #description {
     0% {
         transform: translateX(-1400px) translateY(0) scale(1);
     }
-
     5% {
         transform: translateX(-1200px) translateY(-100px) scale(1);
     }
-
     10% {
         transform: translateX(-1000px) translateY(50px) scale(1);
     }
-
     15% {
         transform: translateX(-800px) translateY(-50px) scale(1);
     }
-
     20% {
         transform: translateX(-600px) translateY(100px) scale(1);
     }
-
     25% {
         transform: translateX(-400px) translateY(0) scale(1);
     }
-
     30% {
         transform: translateX(-200px) translateY(150px) scale(1);
     }
-
     35% {
         transform: translateX(0) translateY(50px) scale(1);
     }
-
     40% {
         transform: translateX(200px) translateY(200px) scale(1);
     }
-
     45% {
         transform: translateX(400px) translateY(100px) scale(1);
     }
-
     50% {
         transform: translateX(600px) translateY(300px) scale(1);
     }
-
     55% {
         transform: translateX(800px) translateY(150px) scale(1);
     }
-
     60% {
         transform: translateX(1000px) translateY(350px) scale(1);
     }
-
     65% {
         transform: translateX(1200px) translateY(200px) scale(1);
     }
-
     70% {
         transform: translateX(1400px) translateY(400px) scale(1);
     }
-
     75% {
         transform: translateX(1600px) translateY(250px) scale(1);
     }
-
     80% {
         transform: translateX(1800px) translateY(450px) scale(1);
     }
-
     85% {
         transform: translateX(2000px) translateY(300px) scale(1);
     }
-
     90% {
         transform: translateX(2200px) translateY(500px) scale(1);
     }
-
     95% {
         transform: translateX(2400px) translateY(350px) scale(1);
     }
-
     100% {
         transform: translateX(2600px) translateY(-550px) scale(1);
     }
 }
 
 /* ------------------------------------------------------------ Death Star */
+
 .planet-destroyer {
     background: url('../img/stars-bg.jpg') no-repeat #000;
     background-size: 100%;
@@ -1063,6 +1046,7 @@ h1, #description {
     bottom: -4vh;
     right: -100vw;
     width: 60%;
+    min-width: 400px;
     z-index: 4;
     animation: starDestroyer 80s infinite linear;
 }
