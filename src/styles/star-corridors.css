@@ -900,6 +900,13 @@ h1, #description {
     animation: greatSteps 40s infinite linear;
 }
 
+@media (max-width: 768px) {
+    .at-at {
+        height: 800px;
+        width: 800px;       
+    }
+}
+
 .snowspeeder {
     position: absolute;
     top: -50vh;
@@ -909,6 +916,13 @@ h1, #description {
     z-index: 3;
     transform: translateX(-400px);
     animation: scape 10s infinite ease;
+}
+
+@media (max-width: 768px) {
+    .snowspeeder {
+        height: 80px;
+        width: 80px;       
+    }
 }
 
 .echo-base-titles {
