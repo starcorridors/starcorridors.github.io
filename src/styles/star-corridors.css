@@ -24,16 +24,52 @@ h1 {
     hyphens: none;
 }
 
-nav {
+
+/* ------------------------------------------------------------ Site Nav */
+
+#site-nav {
+    font-size: 16px;
     font-weight: bold;
+    height: 72px;
+    padding: 4px;
+    text-align: center;
 }
 
-nav a {
-    border-radius: 4px;
+@media (max-width: 768px) {
+    #site-nav {
+        font-size: 12px;
+    }
 }
 
-nav a:first-child:visited {
+#site-nav a {
+    background: #fff;
+    border-radius: 50%;
+}
+
+#site-nav a:first-child:visited {
     color: #000;
+}
+
+.site-download,
+.site-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+}
+
+.site-download {
+    right: 0;
+    left: auto;
+}
+
+#site-nav .site-download a,
+#site-nav .site-title a {
+    border-radius: 12px;
+}
+
+#site-nav .site-download a {
+    color: green;
 }
 
 /* ------------------------------------------------------------ Preloader */
